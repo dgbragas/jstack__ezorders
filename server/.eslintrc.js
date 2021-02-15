@@ -13,6 +13,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'prettier/prettier': 'error',
     'no-use-before-define': 'off',
+    'consistent-return': 'off',
     'import/extensions': [
       'error',
       'ignorePackages',
