@@ -4,7 +4,6 @@
     "es2021": true
   },
   "extends": [
-    "eslint:recommended",
     "plugin:react/recommended",
     "airbnb",
     "plugin:prettier/recommended"
@@ -22,11 +21,14 @@
     "prettier"
   ],
   "rules": {
+    "import/prefer-default-export": "off",
+    "no-use-before-define": "off",
+    "no-underscore-dangle": "off",
     "prettier/prettier": "error",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "no-use-before-define": "off",
     "react/react-in-jsx-scope": "off",
+    "react/jsx-one-expression-per-line": "off",
     "react/jsx-filename-extension": [
       1,
       {
