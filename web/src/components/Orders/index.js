@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import socketIOClient from 'socket.io-client';
+
 import { Container, Card } from './styles';
 
 export default function Orders() {
@@ -12,7 +14,35 @@ export default function Orders() {
 
       setOrders(json);
     })();
+
+    const socket = socketIOClient('http://localhost:3001', {
+      transports: ['websocket'],
+    });
+
+    socket.on('newOrder', order => {
+      setOrders(prevState => [order, ...prevState]);
+    });
+
+    socket.on('statusChange', updatedOrder => {
+      setOrders(prevState =>
+        prevState.map(order =>
+          order._id === updatedOrder._id ? updatedOrder : order,
+        ),
+      );
+    });
   }, []);
+
+  function handleStatusChange(order) {
+    return ({ target: { value } }) => {
+      fetch(`http://localhost:3001/orders/${order._id}/status`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ status: value }),
+      });
+    };
+  }
 
   return (
     <Container>
@@ -27,7 +57,7 @@ export default function Orders() {
 
           <p>{order.description}</p>
 
-          <select value={order.status}>
+          <select value={order.status} onChange={handleStatusChange(order)}>
             <option value="PENDING">Pendente</option>
             <option value="PREPARING">Preparando</option>
             <option value="DONE">Finalizado</option>
