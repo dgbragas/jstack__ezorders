@@ -16,6 +16,5 @@ export default createGlobalStyle`
     background: #eee;
     color: #0a100D;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
   }
 `;
