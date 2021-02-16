@@ -9,7 +9,7 @@ import Orders from '../components/Orders';
 import logoImg from '../images/logo.png';
 
 export default function Home() {
-  const [isModalOpeded, setIsModalOpened] = useState(true);
+  const [isModalOpeded, setIsModalOpened] = useState(false);
 
   function handleToggleModal() {
     setIsModalOpened(!isModalOpeded);
