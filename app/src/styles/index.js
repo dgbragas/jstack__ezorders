@@ -6,7 +6,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const Logo = styled.Image`
-  margin-top: 80px;
+  margin: 80px 0 32px;
 `;
 
 export const NewOrderContainer = styled.View`
