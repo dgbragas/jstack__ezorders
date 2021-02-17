@@ -1,6 +1,6 @@
 # **ezOrders: Easy orders management**
 
-<img src="./docs/JStack-ezOrders.png" alt="ezOrders" />
+<img src="./docs/JSTack-ezOrders.png" alt="ezOrders" />
 
 <p align="center">
   <img src="http://img.shields.io/static/v1?label=STATUS&message=V1%20FINISHED&color=yellow&style=for-the-badge"/>
